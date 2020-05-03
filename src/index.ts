@@ -1,26 +1,19 @@
-console.log('Try npm run check/fix!');
+import express from 'express';
+import cors from 'cors';
+const app = express();
 
-const longString =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut aliquet diam.';
+app.use(cors());
 
-// const trailing = 'Semicolon';
+app.use(express.json());
 
-// const why = 'am I tabbed?';
+app.get('/getTest', (_req: express.Request, res: express.Response) => {
+  res.json({ a: 'pass1' });
+});
 
-console.log(longString);
+app.post('/postTest', (req: express.Request, res: express.Response) => {
+  console.log('---->', req.body);
 
-export function doSomeStuff(
-  withThis: string,
-  andThat: string,
-  andThose: string[],
-) {
-  //function on one line
-  if (!andThose.length) {
-    return false;
-  }
-  console.log(withThis);
-  console.log(andThat);
-  console.dir(andThose);
-  return;
-}
-// TODO: more examples
+  res.json({ b: 'pass2' });
+});
+
+app.listen(3000);
