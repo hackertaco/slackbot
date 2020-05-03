@@ -134,4 +134,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# aws
+*.pem
 # End of https://www.gitignore.io/api/node,windows
