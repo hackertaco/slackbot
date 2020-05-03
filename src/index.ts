@@ -1,19 +1,16 @@
-import express from 'express';
-import cors from 'cors';
-const app = express();
+import { connectDatabase } from './database';
+import { runServer } from './server';
 
-app.use(cors());
+async function startApplication() {
+  try {
+    await connectDatabase();
+    console.log('database is connected successfully');
+    await runServer();
+    console.log('server is running on 3000');
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
+}
 
-app.use(express.json());
-
-app.get('/getTest', (_req: express.Request, res: express.Response) => {
-  res.json({ a: 'pass1' });
-});
-
-app.post('/postTest', (req: express.Request, res: express.Response) => {
-  console.log('---->', req.body);
-
-  res.json({ b: 'pass2' });
-});
-
-app.listen(3000);
+startApplication();
