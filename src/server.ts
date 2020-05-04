@@ -8,10 +8,10 @@ app.use(cors());
 
 app.use(express.json());
 
-export function runServer() {
+export function runServer(port:number, host:string) {
   return new Promise((resolve, reject) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    app.listen(3000, String(process.env.host), (err: any) => {
+    app.listen(port, host), (err: any) => {
       if (err) {
         reject(err);
       }
