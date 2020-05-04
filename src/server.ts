@@ -8,10 +8,10 @@ app.use(cors());
 
 app.use(express.json());
 
-export function runServer(port:number, host:string) {
+export function runServer(host: string, port: number) {
   return new Promise((resolve, reject) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    app.listen(port, host), (err: any) => {
+    // tslint:disable-next-line: no-any
+    app.listen(port, host, (err: unknown) => {
       if (err) {
         reject(err);
       }
@@ -23,6 +23,7 @@ app.get('/', (_req: express.Request, res: express.Response) => {
   res.json({ res: 'hi' });
 });
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 app.post('/welcome', async (req: express.Request, _res: express.Response) => {
   const data: string = req.body.text.split(' ');
   const name = data[0];
