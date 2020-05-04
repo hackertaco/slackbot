@@ -43,6 +43,7 @@ async function main() {
   }
   signale.info('bye');
   await db.close();
-  throw new Error('bye');
+  // eslint-disable-next-line no-process-exit
+  process.exit();
 }
 main();
