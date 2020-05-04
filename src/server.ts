@@ -11,7 +11,7 @@ app.use(express.json());
 export function runServer() {
   return new Promise((resolve, reject) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    app.listen(3000, 'localhost', (err: any) => {
+    app.listen(3000, String(process.env.host), (err: any) => {
       if (err) {
         reject(err);
       }
