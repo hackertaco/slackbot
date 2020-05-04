@@ -23,7 +23,9 @@
   },
   "scripts": {
     "dev": "npx ts-node src/index.ts",
-    "db:dev": "cp .env.development .env && NODE_ENV=development ts-node ./src/database/cli"
+    "db:dev": "cp .env.development .env && NODE_ENV=development ts-node ./src/database/cli",
+    "start": "NODE_ENV=production node dist/index.js",
+    "build": "tsc -p ."
   },
   "dependencies": {
     "pluralize": "^8.0.0",
