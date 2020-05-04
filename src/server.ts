@@ -23,7 +23,7 @@ app.get('/', (_req: express.Request, res: express.Response) => {
   res.json({ res: 'hi' });
 });
 
-app.post('/welcome', async (req: express.Request, res: express.Response) => {
+app.post('/welcome', async (req: express.Request, _res: express.Response) => {
   const data: string = req.body.text.split(' ');
   const name = data[0];
   const userService = new UserService();
