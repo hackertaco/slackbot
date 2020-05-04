@@ -6,6 +6,7 @@
   "entry": "index.js",
   "devDependencies": {
     "@types/cors": "^2.8.6",
+    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.6",
     "@types/jest": "^25.2.1",
     "@types/node": "^10.0.3",
@@ -26,12 +27,14 @@
   },
   "scripts": {
     "dev": "nodemon",
-    "db:dev": "cp .env.development .env && NODE_ENV=development ts-node ./src/database/cli"
+    "db:dev": "npx ts-node ./src/database/cli"
   },
   "dependencies": {
     "class-validator": "^0.12.2",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "pg": "^8.0.3",
     "pluralize": "^8.0.0",
     "signale": "^1.4.0",
     "ts-node": "^8.9.0",
