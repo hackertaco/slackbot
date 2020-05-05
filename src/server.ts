@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import express from 'express';
 import cors from 'cors';
 import './utils/env';
@@ -8,10 +9,10 @@ app.use(cors());
 
 app.use(express.json());
 
-export function runServer(host: string, port: number) {
+export function runServer(port: number) {
   return new Promise((resolve, reject) => {
     // tslint:disable-next-line: no-any
-    app.listen(port, host, (err: unknown) => {
+    app.listen(port, (err: any) => {
       if (err) {
         reject(err);
       }
@@ -19,11 +20,11 @@ export function runServer(host: string, port: number) {
     });
   });
 }
-app.get('/', (_req, res) => {
+app.get('/', (_req: any, res: any) => {
   res.json({ res: 'hi' });
 });
 
-app.post('/welcome', async (req, res) => {
+app.post('/welcome', async (req: any, res: any) => {
   const data: string = req.body.text.split(' ');
   const name = data[0];
   console.log(name);
