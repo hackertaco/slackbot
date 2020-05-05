@@ -16,7 +16,7 @@ export class AppController {
     return 'hi';
   }
 
-  @Post()
+  @Post('welcome')
   async welcome(@Body() body: any) {
     const data: string = body.text.split(' ');
     const name = data[0];
