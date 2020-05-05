@@ -26,10 +26,9 @@
     "typescript": "~3.8.0"
   },
   "scripts": {
-    "dev": "npx ts-node src/index.ts",
     "dev": "nodemon",
     "db:dev": "cp .env.development .env && NODE_ENV=development ts-node ./src/database/cli",
-    "start": "NODE_ENV=production node dist/index.js",
+    "start": "node dist/index.js",
     "build": "tsc -p ."
   },
   "dependencies": {
