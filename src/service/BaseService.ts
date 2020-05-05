@@ -9,9 +9,9 @@ export abstract class BaseService<T extends BaseModel> {
   constructor(repo: ObjectType<T>) {
     this.genericRepository = getConnection().getRepository(repo);
   }
-  async getByWhere(where: [] | {}): Promise<T | undefined> {
+  async getByWhere(name: string): Promise<T | undefined> {
     return await this.genericRepository.findOne({
-      where,
+      where: { name },
     });
   }
 }

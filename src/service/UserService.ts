@@ -31,6 +31,6 @@ export class UserService extends BaseService<User> {
   }
 
   async findUser(name: string): Promise<User> {
-    return (this.getByWhere({ where: { name } }) as unknown) as User;
+    return (this.getByWhere(name) as unknown) as User;
   }
 }
