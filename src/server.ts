@@ -45,7 +45,7 @@ app.post('/welcome', async (req: any, res: any) => {
     });
   } else {
     res.json({
-      respose_type: 'in_channel',
+      response_type: 'in_channel',
       text: `${user.name}님, 또 오셨네요 ! 반가워요`,
     });
   }
