@@ -21,8 +21,13 @@ export function runServer(port: number) {
     });
   });
 }
+
 app.get('/', (_req: any, _res: any) => {
-  return 'hi';
+  _res.json({ name: 'hi' });
+});
+
+app.post('/', (_req: any, _res: any) => {
+  _res.json({ name: 'hi' });
 });
 
 app.post('/welcome', async (req: any, _res: any) => {
@@ -32,7 +37,7 @@ app.post('/welcome', async (req: any, _res: any) => {
   const userService = new UserService();
   const [user, IsNew] = await userService.create({ name });
   if (IsNew) {
-    return {
+    _res.json({
       response_type: 'in_channel',
       text: [
         `안녕하세요 ! 처음오셨네요 ${user.name}님`,
@@ -43,12 +48,12 @@ app.post('/welcome', async (req: any, _res: any) => {
         ':two_hearts: 연락처 :',
         ':two_hearts: 카톡ID or 이메일 :',
       ].join('\n'),
-    };
+    });
   } else {
-    return {
+    _res.json({
       response_type: 'in_channel',
       text: `${user.name}님, 또 오셨네요 ! 반가워요`,
-    };
+    });
   }
   // typeorm model 을 만들어준다 ( basemodel, user )
   // aws rds postgresql 을 만든다
