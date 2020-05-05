@@ -1,7 +1,8 @@
-import { Service } from 'typedi';
 import { User } from '../model';
 import { BaseService } from './BaseService';
 import { IsString } from 'class-validator';
+// eslint-disable-next-line node/no-unpublished-import
+import { Injectable } from '@nestjs/common';
 
 export type userType = Promise<[User, boolean]>;
 const userType = Promise;
@@ -10,8 +11,7 @@ export class IuserDTO {
   @IsString()
   name!: string;
 }
-
-@Service()
+@Injectable()
 export class UserService extends BaseService<User> {
   constructor() {
     super(User);

@@ -5,6 +5,8 @@
   "license": "MIT",
   "entry": "index.js",
   "devDependencies": {
+    "@nestjs/common": "^7.0.9",
+    "@nestjs/core": "^7.0.9",
     "@types/cors": "^2.8.6",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.6",
